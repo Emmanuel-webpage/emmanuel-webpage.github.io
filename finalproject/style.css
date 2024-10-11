@@ -1,0 +1,97 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+ul {
+    display: flex;
+    justify-content: space-around;
+   
+    padding: 14px 0;
+  }
+  li {
+    color: yellow;
+    list-style-type: none;
+    padding: 14px 20px;
+    font-size: x-large;
+  }
+  li:hover{
+    opacity: 0.5;
+  }
+  body{
+    background-color: teal;
+    transition: background-color 3s ease;
+  }
+  .container{
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .card-img{
+    width: 250px;
+    height: 250px;
+  }
+  header{
+    width: 100%;
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #greeting{
+    text-align: center;
+    color: blue;
+    animation: changeSize 2s infinite;
+  }
+  @keyframes changeSize {
+    0% {
+        font-size: 20px;
+    }
+    50% {
+        font-size: 30px;
+    }
+    100% {
+        font-size: 20px;
+    }
+}
+.startbuttons{
+  background-color: blue;
+  text-align: center;
+  
+}
+.paragraphHolder{
+  width: 250px;
+  height: 130px;
+}
+.footer {
+  width: 100%;
+ 
+  background-color: #807d7d;
+  box-shadow: inset 0 -4px 0 #d1d1d1;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.social-icons {
+  list-style-type: none;
+
+}
+
+
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+.copyright {
+  text-align: center;
+ 
+  font-size: 14px;
+}
+.containerquiz{
+  text-align: center;
+
+}
