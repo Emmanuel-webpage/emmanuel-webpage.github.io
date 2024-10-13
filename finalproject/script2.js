@@ -14,7 +14,16 @@ setInterval(changeBackgroundColor, 2000);
 
 function correctAnswer(){
     alert("Great Job! this is correct answer.");
+    audio.play();
 }
 function wrongAnswer(){
     alert("Ohh! you selected an incorrect answer");
+    audio1.play();
+}
+function dontknow() {
+    alert("we do not know");
+    audio2.play();
+
+
+    
 }
