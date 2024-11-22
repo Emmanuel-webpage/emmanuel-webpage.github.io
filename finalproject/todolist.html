@@ -28,46 +28,8 @@
         <ul id="dontList"></ul>
     </div>
 
-    <script>
-        // Anonymous function to handle form submissions for adding tasks to the To-Do List
-        document.getElementById('toDoForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission behavior
-            const input = document.getElementById('toDoInput');
-            const taskContent = input.value.trim(); // Retrieve and trim input value
-            if (taskContent) {
-                addTask('toDoList', taskContent); // Call addTask function if input is not empty
-                input.value = ''; // Clear the input field
-            }
-        });
-
-        // Named function to add a task to the specified list
-        function addTask(listId, content) {
-            const list = document.getElementById(listId); // Retrieve the list element
-            const listItem = document.createElement('li'); // Create a new list item element
-            listItem.className = 'task-item'; // Add necessary classes
-            listItem.textContent = content; // Set the text content of the list item
-            list.appendChild(listItem); // Append the list item to the list element
-        }
-
-        // Anonymous function to handle form submissions for adding tasks to the Don't List
-        document.getElementById('dontForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission behavior
-            const input = document.getElementById('dontInput');
-            const taskContent = input.value.trim(); // Retrieve and trim input value
-            if (taskContent) {
-                addTask('dontList', taskContent); // Call addTask function if input is not empty
-                input.value = ''; // Clear the input field
-            }
-        });
-
-        // Named function to add a task to the Don't List
-        function addTask(listId, content) {
-            const list = document.getElementById(listId); // Retrieve the list element
-            const listItem = document.createElement('li'); // Create a new list item element
-            listItem.className = 'task-item'; // Add necessary classes
-            listItem.textContent = content; // Set the text content of the list item
-            list.appendChild(listItem); // Append the list item to the list element
-        }
+    <script src="todolist.js">
+    
     </script>
 </body>
 </html>
