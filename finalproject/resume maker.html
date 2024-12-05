@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .output-section {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2>Resume Builder</h2>
+        <small>Create your resume
+
+
+        </small>
+        <form id="resumeForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" class="form-control" id="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">specailised fields:</label>
+                <input type="text" class="form-control" id="fields" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">experience:</label>
+                <input type="text" class="form-control" id="exp" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">extra things to say:</label>
+                <input type="text" class="form-control" id="ext" required>
+            </div>
+            <button type="button" class="btn btn-primary" id="submitBtn">Generate Resume</button>
+        </form>
+        <div class="output-section mt-5" id="outputSection">
+            <h3>Generated Resume</h3>
+            <div id="resumeOutput"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function () {
+
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var fields = document.getElementById('fields').value;
+            var exp = document.getElementById('exp').value;
+            var ext = document.getElementById('ext').value;
+
+
+
+            var resumeInfo = {
+                name: name,
+                email: email,
+                phone: phone,
+                fields: fields,
+                exp: exp,
+                ext: ext,
+            };
+
+
+            var resumeTemplate = `
+                <p><strong>Name:</strong> ${resumeInfo.name}</p>
+                  <p><strong>Specalised in:</strong> ${resumeInfo.fields}</p>
+                <p><strong>Expirience:</strong>has  ${resumeInfo.exp} in ${resumeInfo.fields}</p>
+                 <p> ${resumeInfo.ext}</p>
+                <h4><u>Way to contact</u></h4>
+                <p><strong>Email:</strong> ${resumeInfo.email}</p>
+                <p><strong>Phone Number:</strong> ${resumeInfo.phone}</p>
+            
+
+            `;
+
+
+            document.getElementById('resumeOutput').innerHTML = resumeTemplate;
+
+
+            document.getElementById('outputSection').style.display = 'block';
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

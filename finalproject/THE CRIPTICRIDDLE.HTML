@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cryptic Riddle</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .riddle-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex justify-content-center">
+        <div class="riddle-container text-center">
+            <h2>The Cryptic Riddle</h2>
+            <p id="riddle">Clue 1: I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?</p>
+            <div class="form-group">
+                <input type="text" id="answer" class="form-control" placeholder="Your answer">
+            </div>
+            <button class="btn btn-primary" onclick="checkAnswer()">Submit</button>
+            <button class="btn btn-secondary" onclick="previousRiddle()">Previous</button>
+            <button class="btn btn-success" onclick="nextRiddle()">Next</button>
+            <p id="result" class="mt-3"></p>
+        </div>
+    </div>
+
+    <script>
+        const riddles = [
+            { clue: "Clue 1: I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?", answer: "echo" },
+            { clue: "Clue 2: I can be cracked, made, told, and played. What am I?", answer: "joke" },
+            { clue: "Clue 3: I have keys but no locks. I have space but no room. You can enter, but you can't go outside. What am I?", answer: "keyboard" },
+            { clue: "Clue 4: I am not alive, but I can grow. I don't have lungs, but I need air. What am I?", answer: "fire" },
+            { clue: "Clue 5: I can fly without wings. I can cry without eyes. Whenever I go, darkness flies. What am I?", answer: "cloud" }
+        ];
+
+        let currentRiddle = 0;
+
+        function checkAnswer() {
+            const answer = document.getElementById("answer").value.toLowerCase();
+            const result = document.getElementById("result");
+            if (answer === riddles[currentRiddle].answer) {
+                result.textContent = "Correct!";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Incorrect! Try again.";
+                result.style.color = "red";
+            }
+        }
+
+        function nextRiddle() {
+            if (currentRiddle < riddles.length - 1) {
+                currentRiddle++;
+                document.getElementById("riddle").textContent = riddles[currentRiddle].clue;
+                document.getElementById("answer").value = "";
+                document.getElementById("result").textContent = "";
+            }
+        }
+
+        function previousRiddle() {
+            if (currentRiddle > 0) {
+                currentRiddle--;
+                document.getElementById("riddle").textContent = riddles[currentRiddle].clue;
+                document.getElementById("answer").value = "";
+                document.getElementById("result").textContent = "";
+            }
+        }
+    </script>
+</body>
+</html>
